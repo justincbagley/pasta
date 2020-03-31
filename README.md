@@ -63,10 +63,10 @@ You need to have:
 
    ```bash 
    mkdir ~/pasta-code
-   cd ~/pasta-code`
+   cd ~/pasta-code
    ```
 
-2. Clone the PASTA code repository from our [github repository](https://github.com/smirarab/pasta). For example you can use: 
+2. Clone the PASTA code repository from our [GitHub repository](https://github.com/smirarab/pasta). For example you can use: 
 
    ```bash
    git clone https://github.com/smirarab/pasta.git
@@ -81,12 +81,12 @@ and [MAC](https://github.com/smirarab/sate-tools-mac).
 You can use 
 
 	```bash
-	git clone https://github.com/smirarab/sate-tools-linux.git #for MAC
+	git clone https://github.com/smirarab/sate-tools-linux.git #for Linux
 	``` 
 	or
 	
 	```bash
-	git clone https://github.com/smirarab/sate-tools-mac.git. #for Linux
+	git clone https://github.com/smirarab/sate-tools-mac.git. #for MAC
 	``` 
 	Or you can directly download these as zip files for 
 [Linux](https://github.com/smirarab/sate-tools-linux/archive/master.zip) or [MAC](https://github.com/smirarab/sate-tools-mac/archive/master.zip)
@@ -239,7 +239,7 @@ The use of this option is generally not suggested (it is a legacy option from SA
 The following is a list of important options used by PASTA. 
 Note that by default PASTA picks these parameters for you, and thus you might not need to ever change these:
 
-   * Initial tree: 
+   * **Initial tree:** 
      If a starting tree is provided using the `-t` option, then that tree is used.
      If the input sequence file is already aligned and `--aligned` option is provided, then PASTA computes an ML tree on the input alignment and uses that as the starting tree. 
      If the input sequences are not aligned (or if they are aligned and `--aligned` is not given), PASTA uses the procedure described below for estimating the starting alignment and tree.
@@ -249,26 +249,26 @@ Note that by default PASTA picks these parameters for you, and thus you might no
 	4. uses hmmalign to align the remaining sequences into the backbone alignment. 
 	5. runs FastTree on the alignment obtained in the previous step.
 
-   * Data type: PASTA does not automatically detect your data type. Unless your data is DNA, you need to set the data type using `-d` command. 
+   * **Data type:** PASTA does not automatically detect your data type. Unless your data is DNA, you need to set the data type using `-d` command. 
    
-   * Subset alignment tool: the default is MAFFT, but you can change it using `--aligner` command.
+   * **Subset alignment tool:** the default is MAFFT, but you can change it using `--aligner` command.
    
-   * Pairwise merge tool: the default is OPAL for dna and Muscle for protein. Change it using `--merger` command. 
+   * **Pairwise merge tool:** the default is OPAL for dna and Muscle for protein. Change it using `--merger` command. 
   
-   * Tree estimation tool: the default is FastTree. You can also set it to RAxML using `--tree-estimator` option. 
+   * **Tree estimation tool:** the default is FastTree. You can also set it to RAxML using `--tree-estimator` option. 
      Be aware that RAxML takes much longer than FastTree. 
      If you really want to have a RAxML tree, we suggest obtaining one by running it on the final PASTA alignment. 
      You can change the model used by FastTree (default: -gtr -gammaq for nt and -wag -gamma for aa) 
      or RAxML (default GTRGAMMA for nt and PROTWAGCAT for AA) by updating the `[model]` parameter under `[FastTree]` or `[RAxML]` header in the config file.
      The model cannot be currently updated in the command line.
 
-   * Number of iterations: the simplest option that can be used to set the number of iterations is `--iter-limit`. 
+   * **Number of iterations:** the simplest option that can be used to set the number of iterations is `--iter-limit`. 
     You can also set a time limit using `--time-limit`, in which case, PASTA runs until the time limit is reached,
     then continues to run until the current iteration is finished, and then stops. 
     If both values are set, PASTA stops after the first limit is reached. 
     The remaining options for setting iteration limits are legacies of SATe and are not recommended. 
    
-   * Masking: Since PASTA produces very gappy alignments, it is a good idea to remove sites that are almost exclusively gaps before running the ML tree estimation. 
+   * **Masking:** Since PASTA produces very gappy alignments, it is a good idea to remove sites that are almost exclusively gaps before running the ML tree estimation. 
      By default, PASTA removes sites that are more than 99.9% gaps. 
      You can change that using the `--mask-gappy-sites` option.
    
@@ -279,7 +279,7 @@ Note that by default PASTA picks these parameters for you, and thus you might no
      This is an unfortunate design (legacy of SATe) and can be quite confusing. 
      Please always double check the actual subset size reported by PASTA and make sure it is the value intended.
 
-   * Temporary files: PASTA creates many temporary files, and deletes most at the end.
+   * **Temporary files:** PASTA creates many temporary files, and deletes most at the end.
       You can control the behavior of temporary files using `--temporaries` (to set the tempdirectory),
     `-k` (to keep temporaries) and `--keepalignmenttemps` (to keep even more temporaries) options. 
     Note that PASTA also creates a bunch of temporary files in the output directory and never deletes them, 
@@ -289,10 +289,10 @@ Note that by default PASTA picks these parameters for you, and thus you might no
     internal PASTA sequence names, which are slightly different from your actual sequence names.
     The mapping between PASTA and real names are given also as a temporary file: `[jobname]_temp_name_translation.txt`.
 
-   * Dry run: The `--exportconfig` option can be used to crate a config file that can be checked for 
+   * **Dry run:** The `--exportconfig` option can be used to crate a config file that can be checked for 
      correctness before running the actual job. 
 
-   * CPUs: PASTA tries to use all the available cpus by default. You can use  `num_cpus` to adjust the number of threads used. 
+   * **CPUs:** PASTA tries to use all the available cpus by default. You can use  `num_cpus` to adjust the number of threads used. 
 
 
 The remaining options available in PASTA are mostly legacies from SATe and are generally not useful for PASTA runs. 
